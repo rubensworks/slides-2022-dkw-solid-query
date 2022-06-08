@@ -40,41 +40,313 @@
       <p class="affiliation"><a href="http://idlab.technology/">Ghent University – imec – IDLab, Belgium</a></p>
     </section>
 
-    <section id="start" class="slide" style="background-image: url('img/TODO.jpg')" inlist="" rel="schema:hasPart" resource="#start">
-        <h2 property="schema:name" class="big" style="margin-top: 20px; color: white; text-shadow: 2px 2px black">INTRO</h2>
-        <ul style="color: white; text-shadow: 2px 2px black; font-size: 1.3em">
-            <li>TODO</li>
+    <section id="start" class="slide" inlist="" rel="schema:hasPart" resource="#start">
+        <h2 property="schema:name" class="big" style="margin-top: 20px; font-size: 3em">Solid</h2>
+        <h3 style="font-size: 1.8em; margin-top: -15px">a Web-based decentralization ecosystem</h3>
+        <ul style="font-size: 1.3em">
+            <li><h3 style="color:black">Users are in full control over their own data</h3></li>
+            <li><h3 style="color:black">Built on Web standards</h3></li>
+            <li><h3 style="color:black">&rarr; How to query efficiently?</h3></li>
         </ul>
+        <img src="img/solid-logo.svg" alt="Solid Logo" width="200px" style="float:right; margin-top: -150px" />
     </section>
 	
     <section id="index" class="slide index" inlist="" rel="schema:hasPart" resource="#index">
       <ul>
-        <li><a href="#index-a">TODO</a></li>
-		<li><a href="#index-b">TODO</a></li>
+        <li><a href="#index-how-solid-works">How Solid works</a></li>
+        <li><a href="#index-querying">Querying in Solid</a></li>
+		<li><a href="#index-ongoing">Ongoing query research</a></li>
       </ul>
     </section>
     
-    <section id="index-a" class="slide index" inlist="" rel="schema:hasPart" resource="#index-a">
+    <section id="index-how-solid-works" class="slide index" inlist="" rel="schema:hasPart" resource="#index-how-solid-works">
       <ul>
-        <li class="current"><a href="#index-a">TODO</a></li>
-		<li><a href="#index-b">TODO</a></li>
+        <li class="current"><a href="#index-how-solid-works">How Solid works</a></li>
+        <li><a href="#index-querying">Querying in Solid</a></li>
+		<li><a href="#index-ongoing">Ongoing query research</a></li>
       </ul>
     </section>
-	
-    <section id="some-slide" class="slide" inlist="" rel="schema:hasPart" resource="#some-slide">
-      <h2 property="schema:name">TODO: A regular slide</h2>
+    
+    <section id="pods" class="slide" inlist="" rel="schema:hasPart" resource="#pods">
+      <h2 property="schema:name">Personal data pods</h2>
+      <h3>Full control of where your pod is stored and who can access it</h2>
+      <center>
+          <img src="img/solid-pods.svg" alt="Solid Pods" width="500px" />
+      </center>
+    </section>
+    
+    <section id="pods-storage" class="slide" inlist="" rel="schema:hasPart" resource="#pods-storage">
+      <h2 property="schema:name">Pods can store any kind of data</h2>
+      <h3>Personal data, photo's, friends, ...</h2>
+      <center>
+          <img src="img/pods-storage.svg" alt="Solid Pods Storage" width="500px" />
+      </center>
+    </section>
+    
+    <section id="decouple-data-app" class="slide" inlist="" rel="schema:hasPart" resource="#decouple-data-app">
+      <h2 property="schema:name">Data become decoupled from apps</h2>
+      <center>
+          <img src="img/social-network-central.svg" alt="Centralized App" width="400px" />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="img/social-network-solid.svg" alt="Solid App" width="400px" />
+      </center>
       <ul>
           <li>
-          	  <h3>A</h3>
-			  <span class="indent">TODO: Description</span>
+          	  <h3>Today: <em>data and app are tightly coupled</em></h3>
+              <span class="indent">No choice over where and how data is stored, and who can access it</span>
           </li>
-          <li>B</li>
-          <li>C</li>
+          <li>
+          	  <h3>Solid: <em>data and app are decoupled</em></h3>
+			  <span class="indent">Apps require read/write permissions from the user</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="app-changes" class="slide" inlist="" rel="schema:hasPart" resource="#app-changes">
+      <h2 property="schema:name">A paradigm shift in app design</h2>
+      <ul>
+          <li>
+          	  <h3>Storage of data is decentralised</h3>
+			  <span class="indent">Data is stored in the user's pod instead of in the app</span>
+          </li>
+          <li>
+          	  <h3>Combining multiple data pods</h3>
+			  <span class="indent">Apps become views over one or more data pods</span>
+          </li>
+          <li>
+          	  <h3>Explicit access control</h3>
+			  <span class="indent">Apps can only view or modify (parts of) your data after explicit approval</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="how-to-query" class="slide" inlist="" rel="schema:hasPart" resource="#how-to-query">
+      <h2 property="schema:name" style="text-align: center; margin-top: 4em;">Solid spreads data across many sources.<br />How to build efficient Solid apps?</h2>
+    </section>
+    
+    <section id="index-querying" class="slide index" inlist="" rel="schema:hasPart" resource="#index-ongoing">
+      <ul>
+        <li><a href="#index-how-solid-works">How Solid works</a></li>
+        <li class="current"><a href="#index-querying">Querying in Solid</a></li>
+		<li><a href="#index-ongoing">Ongoing query research</a></li>
+      </ul>
+    </section>
+    
+    <section id="query-abstract" class="slide" inlist="" rel="schema:hasPart" resource="#query-abstract">
+      <h2 property="schema:name">Queries as abstraction layer</h2>
+      <h3>Hide the complexities of reading and writing for app developers</h3>
+      <ul>
+          <li>
+          	  <h3>Say what needs to happen, not how</h3>
+			  <span class="indent">Declarative queries hide complexities of data retrieval</span>
+          </li>
+          <li>
+          	  <h3>Queries are reusable</h3>
+			  <span class="indent">Queries are not API-specific</span>
+          </li>
+          <li>
+          	  <h3>Execution via a generic, reusable <em>query engine</em></h3>
+			  <span class="indent">Abstracts away complexities for executing queries</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="comunica" class="slide" inlist="" rel="schema:hasPart" resource="#comunica">
+      <h2 property="schema:name">Comunica is a meta query engine</h2>
+      <img src="img/comunica_red.svg" alt="Comunica" width="200px" style="float: right" />
+      <ul>
+          <li>
+          	  <h3>Collection of building blocks</h3>
+			  <span class="indent">Independent modules implement specific functionality</span>
+          </li>
+          <li>
+          	  <h3>Runs anywhere (Web browser, server-side, ...)</h3>
+			  <span class="indent">Written in TypeScript/JavaScript</span>
+          </li>
+          <li>
+          	  <h3>For research <em>and</em> production-ready</h3>
+			  <span class="indent">Open governance under the <a href="https://comunica.dev/association/">Comunica Association</a></span>
+          </li>
+          <center><h3><a href="https://comunica.dev/">https://comunica.dev/</a></h3></center>
+      </ul>
+    </section>
+    
+    <section id="query-solid-ecosystem" class="slide" inlist="" rel="schema:hasPart" resource="#query-solid-ecosystem">
+      <h2 property="schema:name">How to query within the Solid ecosystem?</h2>
+      <center>
+          <img src="img/books-app.svg" alt="Query books app" width="600px" />
+      </center>
+    </section>
+    
+    <section id="query-link-traversal" class="slide" inlist="" rel="schema:hasPart" resource="#query-link-traversal">
+      <h2 property="schema:name">Link Traversal-based Query Processing</h2>
+      <h3>Query engine follows links based on the Linked Data principles</h3>
+      <center>
+          <img src="img/follow-links.svg" alt="Follow links" width="800px" />
+      </center>
+    </section>
+    
+    <section id="link-traversal-problems" class="slide" inlist="" rel="schema:hasPart" resource="#link-traversal-problems">
+      <h2 property="schema:name">Traditional link traversal has problems</h2>
+      <ul>
+          <li>
+          	  <h3>Termination</h3>
+			  <span class="indent">Many documents on the Web with many links to follow</span><br />
+              <span class="indent">Worst-case: download full Web for each query execution</span>
+          </li>
+          <li>
+          	  <h3>Speed</h3>
+			  <span class="indent">Following links is expensive: setup TCP/HTTP connection</span><br />
+              <span class="indent">No indexing and query planning</span>
+          </li>
+          <li>
+          	  <h3>Completeness</h3>
+			  <span class="indent">Depending on seed documents, different results may be obtained</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="link-traversal-solid-solutions" class="slide" inlist="" rel="schema:hasPart" resource="#link-traversal-solid-solutions">
+      <h2 property="schema:name">Link traversal works quite well for Solid</h2>
+      <ul>
+          <li>
+          	  <h3>Exploit structural properties of Solid pods</h3>
+			  <span class="indent">Pods use Linked Data Platform</span><br />
+              <span class="indent">Guaranteed to find all files in a user's pod</span>
+          </li>
+          <li>
+          	  <h3>Make use of document-based indexes</h3>
+			  <span class="indent">Solid type index: links to all resources of a certain class</span>
+          </li>
+      </ul>
+      <center><h3><a href="https://comunica.dev/research/link_traversal/">https://comunica.dev/research/link_traversal/</a></h3></center>
+    </section>
+    
+    <section id="index-ongoing" class="slide index" inlist="" rel="schema:hasPart" resource="#index-future">
+      <ul>
+        <li><a href="#index-how-solid-works">How Solid works</a></li>
+        <li><a href="#index-querying">Querying in Solid</a></li>
+		<li class="current"><a href="#index-ongoing">Ongoing query research</a></li>
+      </ul>
+    </section>
+    
+    <section id="query-planning" class="slide" inlist="" rel="schema:hasPart" resource="#query-planning">
+      <h2 property="schema:name">Inefficient query plans</h2>
+      <ul>
+          <li>
+          	  <h3>Traditionally: number of links is bottleneck for link traversal</h3>
+			  <span class="indent">Due to structural properties of Solid pods, this is less of a problem</span>
+          </li>
+          <li>
+          	  <h3>Query engines must use heuristics for query planning</h3>
+			  <span class="indent">No statistics available prior to query execution</span><br />
+              <span class="indent" style="font-size: 0.6em">Hartig, Olaf. "Zero-knowledge query planning for an iterator implementation of link traversal based query execution."</span>
+          </li>
+          <li>
+          	  <h3>Need for adaptive query planning</h3>
+			  <span class="indent">Modify query plan during traversal</span><br />
+              <span class="indent">Discovery of cardinality estimates and indexes</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="hybrid" class="slide" inlist="" rel="schema:hasPart" resource="#hybrid">
+      <h2 property="schema:name">Hybrid query execution</h2>
+      <img src="img/vault-query-api.svg" alt="Query API in a Solid pod" width="250px" style="float: right" />
+      <ul>
+          <li>
+          	  <h3>Solid pods are currently document-based</h3>
+			  <span class="indent">Collection of Linked Data documents</span>
+          </li>
+          <li>
+          	  <h3>Pods could expose more expressive interfaces</h3>
+			  <span class="indent">SPARQL endpoints, TPF, SPF, ...</span><br />
+          </li>
+          <li>
+          	  <h3>Need for query execution over heterogeneous sources</h3>
+			  <span class="indent">How to do this in an adaptive manner?</span><br />
+              <span class="indent">Query engine only discover this interface during query execution</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="exploit-structure" class="slide" inlist="" rel="schema:hasPart" resource="#exploit-structure">
+      <h2 property="schema:name">Exploit structural information</h2>
+      <img src="img/pod-structure.svg" alt="Structure in a Solid pod" width="250px" style="float: right" />
+      <ul>
+          <li>
+          	  <h3>Users can structure their pod in a certain way</h3>
+			  <span class="indent">Place all photos in directories based on country</span>
+          </li>
+          <li>
+          	  <h3>Query engines may exploit this information</h3>
+			  <span class="indent">If pods expose this information</span><br />
+          </li>
+          <li>
+          	  <h3>Relevant for query planning</h3>
+			  <span class="indent">Pruning of documents and prioritization</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="reasoning" class="slide" inlist="" rel="schema:hasPart" resource="#reasoning">
+      <h2 property="schema:name">Reasoning at query time</h2>
+      <ul>
+          <li>
+          	  <h3>Different pods/apps may use different vocabularies</h3>
+			  <span class="indent">Schema.org, FOAF, Wikidata, ...</span>
+          </li>
+          <li>
+          	  <h3>Apps issue queries in a single vocabulary</h3>
+			  <span class="indent">Query engine should perform schema alignment</span>
+          </li>
+          <li>
+          	  <h3>Reasoning over partial and streaming knowledge</h3>
+			  <span class="indent">How to do this efficiently?</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="aggregation" class="slide" inlist="" rel="schema:hasPart" resource="#aggregation">
+      <h2 property="schema:name">Summarization across multiple pods</h2>
+      <ul>
+          <li>
+          	  <h3>Data may be aggregated across multiple Solid pods</h3>
+			  <span class="indent">Usage within family context, work place, ...</span>
+          </li>
+          <li>
+          	  <h3>Query engines can exploit these summaries</h3>
+			  <span class="indent">Query planning and source selection</span>
+          </li>
+      </ul>
+      <center><img src="img/pod-summary.svg" alt="Summary over Solid pods" width="400px" /></center>
+    </section>
+    
+    <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index-final">
+      <ul>
+        <li><a href="#index-how-solid-works">How Solid works</a></li>
+        <li><a href="#index-querying">Querying in Solid</a></li>
+		<li><a href="#index-ongoing">Ongoing query research</a></li>
       </ul>
     </section>
 	
     <section id="conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#conclusion">
-      <h2 property="schema:name" class="big">TODO: Conclusion</h2>
+      <h2 property="schema:name" class="big">Link traversal is promising for Solid</h2>
+      <ul>
+          <li>
+          	  <h3>Improvements are required to make it usable in practise</h3>
+			  <span class="indent">Adaptive query planning, hybrid query execution, ...</span>
+          </li>
+          <li>
+          	  <h3>Investigating different techniques in Comunica</h3>
+			  <span class="indent">Modularity enables comparison of different combinations</span>
+          </li>
+          <li>
+          	  <h3>This line of research is urgent</h3>
+			  <span class="indent">Solid is gaining popularity within organizations and governments world-wide</span><br \>
+              <span class="indent">Building apps for Solid is very difficult today &rarr; need for query research!</span>
+          </li>
+      </ul>
     </section>
 
     <footer>
