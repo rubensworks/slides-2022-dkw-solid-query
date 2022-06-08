@@ -218,11 +218,6 @@
           	  <h3>Make use of document-based indexes</h3>
 			  <span class="indent">Solid type index: links to all resources of a certain class</span>
           </li>
-          <li>
-          	  <h3>Opportunities for improvement</h3>
-			  <span class="indent">Number of links is not the main bottleneck anymore</span><br />
-              <span class="indent">Inefficient query plan is the new bottleneck</span>
-          </li>
       </ul>
       <center><h3><a href="https://comunica.dev/research/link_traversal/">https://comunica.dev/research/link_traversal/</a></h3></center>
     </section>
@@ -233,6 +228,98 @@
 		<li><a href="#index-ongoing">Ongoing query research</a></li>
         <li class="current"><a href="#index-future">Open questions</a></li>
       </ul>
+    </section>
+    
+    <section id="query-planning" class="slide" inlist="" rel="schema:hasPart" resource="#query-planning">
+      <h2 property="schema:name">Inefficient query plans</h2>
+      <ul>
+          <li>
+          	  <h3>Traditionally: number of links is bottleneck for link traversal</h3>
+			  <span class="indent">Due to structural properties of Solid pods, this is less of a problem</span>
+          </li>
+          <li>
+          	  <h3>Query engines must use heuristics for query planning</h3>
+			  <span class="indent">No statistics available prior to query execution</span><br />
+              <span class="indent" style="font-size: 0.6em">Hartig, Olaf. "Zero-knowledge query planning for an iterator implementation of link traversal based query execution."</span>
+          </li>
+          <li>
+          	  <h3>Need for adaptive query planning</h3>
+			  <span class="indent">Modify query plan during traversal</span><br />
+              <span class="indent">Discovery of cardinality estimates and indexes</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="hybrid" class="slide" inlist="" rel="schema:hasPart" resource="#hybrid">
+      <h2 property="schema:name">Hybrid query execution</h2>
+      <img src="img/vault-query-api.svg" alt="Query API in a Solid pod" width="250px" style="float: right" />
+      <ul>
+          <li>
+          	  <h3>Solid pods are currently document-based</h3>
+			  <span class="indent">Collection of Linked Data documents</span>
+          </li>
+          <li>
+          	  <h3>Pods could expose more expressive interfaces</h3>
+			  <span class="indent">SPARQL endpoints, TPF, SPF, ...</span><br />
+          </li>
+          <li>
+          	  <h3>Need for query execution over heterogeneous sources</h3>
+			  <span class="indent">How to do this in an adaptive manner?</span><br />
+              <span class="indent">Query engine only discover this interface during query execution</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="exploit-structure" class="slide" inlist="" rel="schema:hasPart" resource="#exploit-structure">
+      <h2 property="schema:name">Exploit structural information</h2>
+      <img src="img/pod-structure.svg" alt="Structure in a Solid pod" width="250px" style="float: right" />
+      <ul>
+          <li>
+          	  <h3>Users can structure their pod in a certain way</h3>
+			  <span class="indent">Place all photos in directories based on country</span>
+          </li>
+          <li>
+          	  <h3>Query engines may exploit this information</h3>
+			  <span class="indent">If pods expose this information</span><br />
+          </li>
+          <li>
+          	  <h3>Relevant for query planning</h3>
+			  <span class="indent">Pruning of documents and prioritization</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="reasoning" class="slide" inlist="" rel="schema:hasPart" resource="#reasoning">
+      <h2 property="schema:name">Reasoning at query time</h2>
+      <ul>
+          <li>
+          	  <h3>Different pods/apps may use different vocabularies</h3>
+			  <span class="indent">Schema.org, FOAF, Wikidata, ...</span>
+          </li>
+          <li>
+          	  <h3>Apps issue queries in a single vocabulary</h3>
+			  <span class="indent">Query engine should perform schema alignment</span>
+          </li>
+          <li>
+          	  <h3>Reasoning over partial and streaming knowledge</h3>
+			  <span class="indent">How to do this efficiently?</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="aggregation" class="slide" inlist="" rel="schema:hasPart" resource="#aggregation">
+      <h2 property="schema:name">Summarization across multiple pods</h2>
+      <ul>
+          <li>
+          	  <h3>Data may be aggregated across multiple Solid pods</h3>
+			  <span class="indent">Usage within family context, work place, ...</span>
+          </li>
+          <li>
+          	  <h3>Query engines can exploit these summaries</h3>
+			  <span class="indent">Query planning and source selection</span>
+          </li>
+      </ul>
+      <center><img src="img/pod-summary.svg" alt="Summary over Solid pods" width="400px" /></center>
     </section>
     
     <section id="index-final" class="slide index" inlist="" rel="schema:hasPart" resource="#index-final">
