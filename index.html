@@ -66,17 +66,62 @@
         <li><a href="#index-future">Open questions</a></li>
       </ul>
     </section>
-	
-    <section id="some-slide" class="slide" inlist="" rel="schema:hasPart" resource="#some-slide">
-      <h2 property="schema:name">TODO: A regular slide</h2>
+    
+    <section id="pods" class="slide" inlist="" rel="schema:hasPart" resource="#pods">
+      <h2 property="schema:name">Personal data pods</h2>
+      <h3>Full control of where your pod is stored and who can access it</h2>
+      <center>
+          <img src="img/solid-pods.svg" alt="Solid Pods" width="500px" />
+      </center>
+    </section>
+    
+    <section id="pods-storage" class="slide" inlist="" rel="schema:hasPart" resource="#pods-storage">
+      <h2 property="schema:name">Pods can store any kind of data</h2>
+      <h3>Personal data, photo's, friends, ...</h2>
+      <center>
+          <img src="img/pods-storage.svg" alt="Solid Pods Storage" width="500px" />
+      </center>
+    </section>
+    
+    <section id="decouple-data-app" class="slide" inlist="" rel="schema:hasPart" resource="#decouple-data-app">
+      <h2 property="schema:name">Data become decoupled from apps</h2>
+      <center>
+          <img src="img/social-network-central.svg" alt="Centralized App" width="400px" />
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="img/social-network-solid.svg" alt="Solid App" width="400px" />
+      </center>
       <ul>
           <li>
-          	  <h3>A</h3>
-			  <span class="indent">TODO: Description</span>
+          	  <h3>Today: <em>data and app are tightly coupled</em></h3>
+              <span class="indent">No choice over where and how data is stored, and who can access it</span>
           </li>
-          <li>B</li>
-          <li>C</li>
+          <li>
+          	  <h3>Solid: <em>data and app are decoupled</em></h3>
+			  <span class="indent">Apps require read/write permissions from the user</span>
+          </li>
       </ul>
+    </section>
+    
+    <section id="app-changes" class="slide" inlist="" rel="schema:hasPart" resource="#app-changes">
+      <h2 property="schema:name">A paradigm shift in app design</h2>
+      <ul>
+          <li>
+          	  <h3>Storage of data is decentralised</h3>
+			  <span class="indent">Data is stored in the user's pod instead of in the app</span>
+          </li>
+          <li>
+          	  <h3>Combining multiple data pods</h3>
+			  <span class="indent">Apps become views over one or more data pods</span>
+          </li>
+          <li>
+          	  <h3>Explicit access control</h3>
+			  <span class="indent">Apps can only view or modify (parts of) your data after explicit approval</span>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="how-to-query" class="slide" inlist="" rel="schema:hasPart" resource="#how-to-query">
+      <h2 property="schema:name" style="text-align: center; margin-top: 4em;">Data is spread over many sources.<br />How to build efficient Solid apps?</h2>
     </section>
     
     <section id="index-ongoing" class="slide index" inlist="" rel="schema:hasPart" resource="#index-ongoing">
